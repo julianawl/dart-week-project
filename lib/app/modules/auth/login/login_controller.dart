@@ -2,10 +2,9 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:vakinha_burger/app/core/contants/constants.dart';
+import 'package:vakinha_burger/app/core/constants/constants.dart';
 import 'package:vakinha_burger/app/core/mixins/loader_mixin.dart';
 import 'package:vakinha_burger/app/core/mixins/messages_mixin.dart';
-import 'package:vakinha_burger/app/core/rest_client/rest_client.dart';
 import 'package:vakinha_burger/app/repositories/auth/auth_repository.dart';
 import 'package:vakinha_burger/app/repositories/auth/user_notfound_exception.dart';
 
@@ -38,11 +37,6 @@ class LoginController extends GetxController
 
       _loading.toggle();
       Get.back();
-      _message(MessageModel(
-        title: 'Sucesso!',
-        message: 'Cadastro realizado com sucesso',
-        type: MessageType.info,
-      ));
     } on UserNotFoundException catch (e, s) {
       _loading.toggle();
       log('Erro ao efetuar login', error: e, stackTrace: s);
